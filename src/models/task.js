@@ -1,26 +1,25 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../sequelize');
+// models/task.js
+const { Model, DataTypes } = require('sequelize');
 
-const Task = sequelize.define('Task', {
-  id: {
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    primaryKey: true
-  },
-  title: {
-    type: DataTypes.STRING,
-    allowNull: true
-  },
-  description: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  status: {
-    type: DataTypes.STRING,
-    allowNull: false
+class Task extends Model {
+  static initModel(sequelize) {
+    Task.init({
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      description: DataTypes.TEXT,
+      status: {
+        type: DataTypes.STRING,
+        defaultValue: 'à faire',
+      },
+    }, {
+      sequelize,
+      modelName: 'Task',
+      tableName: 'tasks',
+      timestamps: true,
+    });
   }
-}, {
-  timestamps: true
-});
+}
 
 module.exports = Task;
