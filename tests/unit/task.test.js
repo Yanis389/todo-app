@@ -1,4 +1,4 @@
-const Task = require('../../src/models/task');
+const Task = require('../../src/models/task.cjs');
 
 describe('Task Model', () => {
   it('devrait créer une tâche avec des champs valides', () => {

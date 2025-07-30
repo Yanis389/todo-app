@@ -1,6 +1,6 @@
 const request = require('supertest');
 const { Sequelize } = require('sequelize');
-const Task = require('../../src/models/task');
+const Task = require('../../src/models/task.cjs');
 const app = require('../../src/app'); // ton app Express
 
 // Base de données de test en mémoire
